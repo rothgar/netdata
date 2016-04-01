@@ -7,14 +7,16 @@
 FROM library/centos:7
 
 RUN yum install -y \
-    zlib-devel \
-    gcc \
-    make \
-    git \
     autoconf \
     autogen \
     automake \
-    pkgconfig && \
+    gcc \
+    git \
+    iproute \
+    make \
+    pkgconfig \
+    which \
+    zlib-devel && \
     yum clean all
 
 RUN git clone https://github.com/firehol/netdata.git /tmp/netdata.git --depth=1
